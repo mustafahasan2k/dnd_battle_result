@@ -1,0 +1,8 @@
+ex Goblin 
+rolls:
+init roll for both 1d4 +init bonus (dex)
+attack roll 1d20 + porficincy +attk bonus (weapon type)
+damage roll (weapon based + damage bonus)
+check:
+attackroll - AC if damage is done 
+hp if there is another turn
