@@ -1,1 +1,1 @@
-Name: Goblin, AC: 15, HP: 7, Proficiency: 2, Attack Bonus: 4, Weapon Damage: 6, Weapon Bonus Damage: 2
+Name: Goblin, AC: 15, HP: 7, Proficiency: 2, Initative: 2, Attack Bonus: 4, Weapon Damage: 6, Weapon Bonus Damage: 2

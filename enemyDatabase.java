@@ -27,7 +27,7 @@ public class enemyDatabase {
         for (String key : enemyMap.keySet()) {
             enemy e = enemyMap.get(key);
             pLn("Name: " + e.getName() + ", AC: " + e.getAc() + ", HP: " + e.getHp() +
-                    ", Proficiency: " + e.getProf() + ", Attack Bonus: " + e.getAttBonus() +
+                    ", Proficiency: " + e.getProf() + ", Initative: " + e.getInit() + ", Attack Bonus: " + e.getAttBonus() +
                     ", Weapon Damage: " + e.getWeapDamage() + ", Weapon Bonus Damage: " + e.getWeapDamageBonus());
         }
     }
@@ -42,11 +42,12 @@ public class enemyDatabase {
                 String name = parts[0].substring(6).trim(); // Remove "Name:" 
                 int ac = Integer.parseInt(parts[1].substring(4).trim()); // Remove "AC:" 
                 int hp = Integer.parseInt(parts[2].substring(4).trim()); // Remove "HP:" 
-                int prof = Integer.parseInt(parts[3].substring(13).trim()); // Remove "Proficiency:" 
-                int attBonus = Integer.parseInt(parts[4].substring(13).trim()); // Remove "Attack Bonus:" 
-                int weapDamage = Integer.parseInt(parts[5].substring(14).trim()); // Remove "Weapon Damage:" 
-                int weapDamageBonus = Integer.parseInt(parts[6].substring(20).trim()); // Remove "Weapon Bonus Damage:" 
-                enemy loadedEnemy = new enemy(name, ac, hp, prof, attBonus, weapDamage, weapDamageBonus);
+                int prof = Integer.parseInt(parts[3].substring(13).trim());// Remove "Proficiency:" 
+                int init = Integer.parseInt(parts[4].substring(11).trim()); // Remove "Initative:" 
+                int attBonus = Integer.parseInt(parts[5].substring(13).trim()); // Remove "Attack Bonus:" 
+                int weapDamage = Integer.parseInt(parts[6].substring(14).trim()); // Remove "Weapon Damage:" 
+                int weapDamageBonus = Integer.parseInt(parts[7].substring(20).trim()); // Remove "Weapon Bonus Damage:" 
+                enemy loadedEnemy = new enemy(name, ac, hp, prof, init, attBonus, weapDamage, weapDamageBonus);
                 enemyMap.put(name, loadedEnemy);
             }
             reader.close();
@@ -62,7 +63,7 @@ public class enemyDatabase {
             for (String key : enemyMap.keySet()) {
                 enemy e = enemyMap.get(key);
                 writer.println("Name: " + e.getName() + ", AC: " + e.getAc() + ", HP: " + e.getHp() +
-                        ", Proficiency: " + e.getProf() + ", Attack Bonus: " + e.getAttBonus() +
+                        ", Proficiency: " + e.getProf() + ", Initative: " + e.getInit() + ", Attack Bonus: " + e.getAttBonus() +
                         ", Weapon Damage: " + e.getWeapDamage() + ", Weapon Bonus Damage: " + e.getWeapDamageBonus());
             }
             writer.close();
@@ -106,14 +107,16 @@ public class enemyDatabase {
                     int hp = sc.nextInt();
                     p("Proficiency: ");
                     int prof = sc.nextInt();
-                    p("Attack Bonus (Dice Num): ");
+                    p("Initative: ");
+                    int init = sc.nextInt();
+                    p("Attack Bonus ");
                     int attBonus = sc.nextInt();
-                    p("Weapon Damage: ");
+                    p("Weapon Damage (Dice Num): ");
                     int weapDamage = sc.nextInt();
                     p("Weapon Bonus Damage: ");
                     int weapDamageBonus = sc.nextInt();
                     sc.nextLine();
-                    enemy newEnemy = new enemy(name, ac, hp, prof, attBonus, weapDamage, weapDamageBonus);
+                    enemy newEnemy = new enemy(name, ac, hp, prof, init, attBonus, weapDamage, weapDamageBonus);
                     database.addEnemy(name, newEnemy);
                     database.saveEnemiesToFile();
                     break;

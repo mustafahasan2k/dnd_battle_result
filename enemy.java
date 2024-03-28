@@ -2,25 +2,27 @@
  *  TO DO
  *  Add different weapon types?
  *  Add skills?
- * 
+ *  V1.1: added initiative
  */
 
-// Object class for the dnd Enemys - V1.0
+// Object class for the dnd Enemys 
 public class enemy {
     private String name;
     private int ac;
     private int hp;
     private int prof;
+    private int init;
     private int attBonus;
     private int weapDamage;
     private int weapDamageBonus;
 
     // Enemy Constructor 
-    public enemy(String name, int ac, int hp, int prof, int attBonus, int weapDamage, int weapDamageBonus) {
+    public enemy(String name, int ac, int hp, int prof, int init, int attBonus, int weapDamage, int weapDamageBonus) {
         this.name = name;
         this.ac = ac;
         this.hp = hp;
         this.prof = prof;
+        this.init = init;
         this.attBonus = attBonus;
         this.weapDamage = weapDamage;
         this.weapDamageBonus = weapDamageBonus;
@@ -38,6 +40,9 @@ public class enemy {
     }
     public int getProf() {
         return prof;
+    }
+    public int getInit() {
+        return init;
     }
     public int getAttBonus() {
         return attBonus;
@@ -61,6 +66,9 @@ public class enemy {
     }
     public void setProf(int proficiency) {
         this.prof = proficiency;
+    }
+    public void setInit(int initiative) {
+        this.init = initiative;
     }
     public void setAttBonus(int attackBonus) {
         this.attBonus = attackBonus;
