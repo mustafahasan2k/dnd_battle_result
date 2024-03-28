@@ -5,7 +5,7 @@
  * 
  */
 
-// Object class for the dnd Enemys
+// Object class for the dnd Enemys - V1.0
 public class enemy {
     private String name;
     private int ac;
